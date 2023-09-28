@@ -19,6 +19,7 @@ module.exports = {
       config.module.rules.push({
         test: /\.(ts|js|tsx|jsx)$/,
         exclude: /node_modules/,
+        enforce: 'post',
         use: [
           {
             loader: require.resolve("@linaria/webpack5-loader"),
@@ -26,9 +27,6 @@ module.exports = {
               sourceMap: process.env.NODE_ENV !== "production",
               displayName: process.env.NODE_ENV !== "production",
               extension: ".linaria.module.css",
-              babelOptions: {
-                presets: ["@babel/preset-react", "@linaria"],
-              },
             },
           },
         ],
